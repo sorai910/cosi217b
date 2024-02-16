@@ -15,7 +15,7 @@ $ pip install {dependency}
   - graphviz
   - spacy
   - spacy_streamlit
-#How to run
+# How to run
 - app_FastAPI.py
 ```bash
 $ uvicorn app_FastAPI:app --reload
