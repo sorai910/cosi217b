@@ -1,4 +1,4 @@
-#Requirements
+# Requirements
 Python 3.10.9 is needed to run this program.
 Use the following command to install required dependecies
 ```bash
