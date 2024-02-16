@@ -1,4 +1,5 @@
 import io
+from spacy_streamlit import visualize_ner
 import pandas as pd
 import spacy
 from spacy import displacy
@@ -24,9 +25,11 @@ class SpacyDocument:
 
     def get_markup_html(self) -> str:
         html = displacy.render(self.doc, style="ent", page=True)+ "<br>"
-        html += pd.DataFrame(self.get_dependency(), columns=['Word', 'Dependency', 'Head Text']).to_html(index=False)
+        html += pd.DataFrame(self.get_dependency(), columns=['Text', 'Dependency', 'Head Text']).to_html(index=False)
         return html
-
+    
+    def get_ents_graph(self):
+        return visualize_ner(self.doc, labels = nlp.get_pipe("ner").labels)
 if __name__ == '__main__':
 
     example = (
