@@ -1,5 +1,7 @@
 import io
+import pandas as pd
 import spacy
+from spacy import displacy
 
 nlp = spacy.load("en_core_web_sm")
 
@@ -15,25 +17,15 @@ class SpacyDocument:
     def get_entities(self) -> str:
         entities = [(e.start_char, e.end_char, e.label_, e.text) for e in self.doc.ents]
         return entities
-
-    def get_entities_with_markup(self) -> str:
-        entities = self.doc.ents
-        starts = {e.start_char: e.label_ for e in entities}
-        ends = {e.end_char: True for e in entities}
-        buffer = io.StringIO()
-        for p, char in enumerate(self.text):
-            if p in ends:
-                buffer.write('</entity>')
-            if p in starts:
-                buffer.write('<entity class="%s">' % starts[p])
-            buffer.write(char)
-        markup = buffer.getvalue()
-        return '<markup>%s</markup>' % markup
-
+    
     def get_dependency(self)-> str:
         dependencies = [(token.text, token.dep_, token.head.text) for token in self.doc]
         return dependencies
 
+    def get_markup_html(self) -> str:
+        html = displacy.render(self.doc, style="ent", page=True)+ "<br>"
+        html += pd.DataFrame(self.get_dependency(), columns=['Word', 'Dependency', 'Head Text']).to_html(index=False)
+        return html
 
 if __name__ == '__main__':
 
