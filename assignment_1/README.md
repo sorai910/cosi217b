@@ -28,7 +28,7 @@ $ curl http://127.0.0.1:8000/dep -H "Content-Type: application/json" -d@{filenam
 ```
 - app_flask.py
 ```bash
-$ python3 app_flask.pyV
+$ python3 app_flask.py
 ```
 - app_strealit.py
 ```bash
