@@ -1,4 +1,4 @@
-#Requirements
+# Requirements
 Python 3.10.9 is needed to run this program.
 Use the following command to install required dependecies
 ```bash
@@ -15,7 +15,7 @@ $ pip install {dependency}
   - graphviz
   - spacy
   - spacy_streamlit
-#How to run
+# How to run
 - app_FastAPI.py
 ```bash
 $ uvicorn app_FastAPI:app --reload
@@ -28,7 +28,7 @@ $ curl http://127.0.0.1:8000/dep -H "Content-Type: application/json" -d@{filenam
 ```
 - app_flask.py
 ```bash
-$ python3 app_flask.pyV
+$ python3 app_flask.py
 ```
 - app_strealit.py
 ```bash
