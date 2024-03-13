@@ -3,7 +3,6 @@ from spacy_streamlit import visualize_ner
 import pandas as pd
 import spacy
 from spacy import displacy
-
 nlp = spacy.load("en_core_web_sm")
 
 class SpacyDocument:

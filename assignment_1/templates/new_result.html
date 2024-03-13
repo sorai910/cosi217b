@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>Entities Results</title>
+</head>
+<body>
+    <h2>Processed Entities</h2>
+    <table border="1">
+        <tr>
+            <th>Text</th>
+            <th>head</th>
+            <th>dependency</th>
+        </tr>
+        {% for entity in ents %}
+        <tr>
+            <td>{{ entity.text }}</td>
+            <td>{{ entity.head }}</td>
+            <td>{{ entity.dependency}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
